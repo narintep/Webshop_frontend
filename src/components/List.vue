@@ -9,7 +9,8 @@
           style="max-width: 13rem;"
           class="mb-2">
           <img :src="require('./../assets/candle_img/'+i.color_id+'.png')">
-    <p class="card-text">size:  <br>  price:</p>
+          
+    <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price}} </p>
     
     <b-button variant="primary" v-on:click="onClick(2)">Detail</b-button>
   </b-card>
