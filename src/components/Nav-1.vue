@@ -9,7 +9,7 @@
   <b-collapse is-nav id="nav_collapse">
 
      <b-navbar-nav>
-      <b-nav-item v-on:click="onClick(1)" >Promotions</b-nav-item>
+      <b-nav-item v-on:click="onClick(1)" >Promotions!!!!</b-nav-item>
       <b-nav-item v-on:click="onClick(1)">Most Views</b-nav-item>
       <b-nav-item v-on:click="onClick(1)">Top Sells</b-nav-item>
        <b-nav-item-dropdown text="Categories" right>
