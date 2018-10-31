@@ -15,18 +15,22 @@
     >
 
       <!-- Text slides with image -->
-      <b-carousel-slide caption="First slide"
-                        text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+      <b-carousel-slide caption="Flower Candles"
+                        text=""
                         img-src="http://www.candle.in.th/wp-content/uploads/2018/04/WC-L07.jpg"
       ></b-carousel-slide>
 
       <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
+      <b-carousel-slide
+          caption="General Candles" 
+          img-src="https://www.girlsallaround.com/wp-content/uploads/2016/04/ti_725_46923805513341-600x337.jpg">
         <h1>Hello world!</h1>
       </b-carousel-slide>
 
       <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58">
+      <b-carousel-slide 
+        caption="Symbol Candles"
+        img-src="https://www.nanagarden.com/Picture/Product/400/224768.jpghttps://picsum.photos/1024/480/?image=58">
       </b-carousel-slide>
 
       <!-- Slides with img slot -->
