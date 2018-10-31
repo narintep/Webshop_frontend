@@ -29,8 +29,8 @@
 
       <!-- Slides with image only -->
       <b-carousel-slide 
-        caption="Symbol Candles"
-        img-src="https://www.nanagarden.com/Picture/Product/400/224768.jpghttps://picsum.photos/1024/480/?image=58">
+          caption="Symbol Candles"
+          img-src="http://www.candle.in.th/wp-content/uploads/2018/04/WC-L22.jpg">
       </b-carousel-slide>
 
       <!-- Slides with img slot -->
