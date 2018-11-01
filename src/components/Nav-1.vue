@@ -1,4 +1,9 @@
+<script>
+import ggeneral from './general'
+
+</script>
 <template>
+
   <div class="hello">
     <b-navbar toggleable="md" type="dark" variant="dark">
 
@@ -14,6 +19,7 @@
       <b-nav-item v-on:click="onClick(1)">Top Sells</b-nav-item>
        <b-nav-item-dropdown text="Categories" right>
         <b-dropdown-item v-on:click="onClick(1)">Generals</b-dropdown-item>
+         
         <b-dropdown-item v-on:click="onClick(1)">Flowers</b-dropdown-item>
         <b-dropdown-item v-on:click="onClick(1)">Geoshapes</b-dropdown-item>
         <b-dropdown-item v-on:click="onClick(1)">Symbols</b-dropdown-item>

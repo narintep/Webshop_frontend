@@ -2,8 +2,8 @@
   <div class="hello">
     <b-row>
       <b-col>
-        <b-card img-alt="Image" img-top tag="article" style="margin-left:25px;margin-top:25px;" class="mb-2">
-          <img :src="require('./../assets/candle_img/'+'1'+'.png')">
+        <b-card width="10" heigt="10">
+          <img src="./candle/general/1.png" width="500" heigt="500"/>
         </b-card>
       </b-col>
       <b-col>
@@ -12,6 +12,8 @@
           <b-col>
             <p>size:</p>
           </b-col>
+          <b-input type="number" v-model="number" required placeholder="Enter value">
+            </b-input>
           <b-col>
             <p>number:</p>
             <b-input type="number" v-model="number" required placeholder="Enter value">
@@ -47,7 +49,26 @@
 
   </div>
 </template>
+<style>
+img:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
 
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+</style>
 <script>
   export default {
     name: "HelloWorld",

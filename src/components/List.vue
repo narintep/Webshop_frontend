@@ -8,7 +8,7 @@
           tag="article"
           style="max-width: 13rem;"
           class="mb-2">
-          <img :src="require('./../assets/candle_img/'+i.color_id+'.png')">
+          <img src= "./candle/general/14.png" width=180 height="200">
           
     <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price}} </p>
     
