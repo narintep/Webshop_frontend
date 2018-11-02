@@ -1,9 +1,12 @@
+
 <template>
   <div class="hello">
+    <div class="mar" v-for="(i,index) in realList"  :key="index">
+    <div v-if="input==i.id">
     <b-row>
       <b-col>
         <b-card width="10" heigt="10">
-          <img src="./candle/Generals/11.png" width="500" heigt="500"/>
+          <img :src="require('./candle/'+i.candle_type.name+'/'+i.size_id+'.png')"  width="500" heigt="500"/>
         </b-card>
       </b-col>
       <b-col>
@@ -46,7 +49,8 @@
       </b-col>
 
     </b-row>
-
+    </div>
+    </div>
   </div>
 </template>
 <style>
@@ -70,16 +74,26 @@ img:hover {
 }
 </style>
 <script>
+var arr = [];
+fetch("http://localhost:3000/api/PurchasedItem")
+        .then(function(data) {
+          return data.json();
+        })
+        .then(function(json) {
+          // console.log(json);
+          arr = json;
+        });
   export default {
     name: "HelloWorld",
     props: {
-      input: String
+      input: Number
     },
     data() {
       return {
         smell1: null,
         smell2: null,
         number: null,
+         realList:arr,
         smell: [{
             text: "Select One",
             value: null

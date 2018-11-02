@@ -12,7 +12,7 @@
           
     <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price}} </p>
     
-    <b-button variant="primary" v-on:click="onClick(2)">Detail</b-button>
+    <b-button variant="primary" v-on:click="onClick(2,i.id)">Detail</b-button>
   </b-card>
 </div>
 </b-row>
@@ -39,8 +39,8 @@ export default {
     };
   },
   methods: {
-    onClick(event) {
-      this.$emit("clicked", event);
+    onClick(event,event2) {
+      this.$emit("clicked", [event,event2]);
     }
   }
 };
