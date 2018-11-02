@@ -1,14 +1,14 @@
 <template>
   <div class="hello">
       <b-row style="margin-left:25px;">
-      <div class="mar" v-for="(i,index) in realList" :key="index">
-  <b-card title="Generals Candle"
+      <div class="mar" v-for="(i,index) in realList"  :key="index">
+  <b-card :title="i.candle_type.name"
           img-alt="Image"
           img-top
           tag="article"
           style="max-width: 13rem;"
           class="mb-2">
-           <img :src="require('./candle/general/'+i.size_id+'.png')" width=180 height="200">
+           <img :src="require('./candle/'+i.candle_type.name+'/'+i.size_id+'.png')" width=180 height="200">
           
     <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price}} </p>
     
