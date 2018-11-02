@@ -3,7 +3,7 @@
     <b-row>
       <b-col>
         <b-card width="10" heigt="10">
-          <img src="./candle/general/11.png" width="500" heigt="500"/>
+          <img src="./candle/Generals/11.png" width="500" heigt="500"/>
         </b-card>
       </b-col>
       <b-col>

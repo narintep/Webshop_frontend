@@ -1,5 +1,5 @@
 <script>
-import ggeneral from './general'
+import ggeneral from './Generals'
 
 </script>
 <template>
