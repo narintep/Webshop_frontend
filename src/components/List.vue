@@ -21,13 +21,13 @@
 <script>
 var arr = [];
 fetch("http://localhost:3000/api/PurchasedItem")
-        .then(function(data) {
-          return data.json();
-        })
-        .then(function(json) {
-          // console.log(json);
-          arr = json;
-        });
+  .then(function(data) {
+    return data.json();
+  })
+  .then(function(json) {
+    // console.log(json);
+    arr = json;
+  });
 export default {
   name: "HelloWorld",
   props: {
@@ -35,7 +35,7 @@ export default {
   },
   data() {
     return {
-      realList:arr,
+      realList: arr
     };
   },
   methods: {

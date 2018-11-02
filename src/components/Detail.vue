@@ -12,7 +12,7 @@
           <b-col>
             <p>size:</p>
           </b-col>
-          <b-input type="number" v-model="number" required placeholder="Enter value">
+          <b-input type="number" v-model2="number" required placeholder="Enter value">
             </b-input>
           <b-col>
             <p>number:</p>
@@ -101,4 +101,31 @@ img:hover {
       }
     }
   };
+</script>
+<script>
+var arr = [];
+fetch("http://localhost:3000/api/expense")
+  .then(function(data) {
+    return data.json();
+  })
+  .then(function(json) {
+    // console.log(json);
+    arr = json;
+  });
+export default {
+  name: "HelloWorld",
+  props: {
+    arr: Array
+  },
+  data() {
+    return {
+      realList: arr
+    };
+  },
+  methods: {
+    onClick(event) {
+      this.$emit("clicked", event);
+    }
+  }
+};
 </script>
