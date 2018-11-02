@@ -8,7 +8,7 @@
           tag="article"
           style="max-width: 13rem;"
           class="mb-2">
-          <img src= "./candle/general/14.png" width=180 height="200">
+           <img :src="require('./candle/general/'+i.size_id+'.png')" width=180 height="200">
           
     <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price}} </p>
     
@@ -36,16 +36,6 @@ export default {
   data() {
     return {
       realList:arr,
-      lists: [
-        { color: "blue", id: 1 },
-        { color: "red", id: 2 },
-        { color: "green", id: 3 },
-        { color: "orange", id: 4 },
-        { color: "purple", id: 5 },
-        { color: "skyblue", id: 6 },
-        { color: "white", id: 7 },
-        { color: "yellow", id: 8 }
-      ]
     };
   },
   methods: {
