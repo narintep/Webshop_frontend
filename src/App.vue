@@ -6,6 +6,7 @@
     <Body v-if="state==0" />
     <List v-if="state==1" v-on:clicked="setState2"  v-bind:arr="list" />
     <Detail v-if="state==2" :input="id" />
+    <WaitingList  v-if="state==3" v-on:clicked="setState3"  v-bind:arr="list" />
     <Signup v-if="state==4" v-on:clicked="setState4" />
     <!-- <Nav2 /> -->
   </div>
