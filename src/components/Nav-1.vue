@@ -28,15 +28,15 @@
 
       
 
-      <b-nav-item v-b-modal.modal1 href="#">Login</b-nav-item>
-
-      <b-nav-item v-on:click="onClick(4)">Signup</b-nav-item>
-      <b-nav-item v-on:click="onClick(3)" href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
+      <b-nav-item v-b-modal.modal1 v-if="user==null" href="#">Login</b-nav-item>
+      <b-nav-item v-if="user!=null" href="#">{{user.username}}</b-nav-item>
+      <b-nav-item v-if="user==null" v-on:click="onClick(4)">Signup</b-nav-item>
+      <b-nav-item href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
     </b-navbar-nav>
 
   </b-collapse>
 </b-navbar>
- <b-modal id="modal1" title="LOGIN!">
+ <b-modal @ok="login" id="modal1" title="LOGIN!">
      <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" v-model="username" name="username" class="form-control" :class="{ 'is-invalid': submitted && !username }" />
@@ -53,11 +53,37 @@
 </template>
 
 <script>
+var data=null;
+
 export default {
   name: "HelloWorld",
+  data() {
+    return {
+      user: null
+    };
+  },
   methods: {
     onClick (event) {
       this.$emit('clicked', event)
+    }
+    ,login(){
+      var self=this;
+      fetch("http://localhost:3000/api/customers/"+this.username+"/"+this.password) .then(function(data) {
+          return data.json();
+        })
+        .then(function(json) {
+          // console.log(json);
+          // arr2 = json;
+          if(json.length>0){
+           data=json[0]
+           self.user=data
+            alert("success login")
+          }else
+          {
+            alert("cannot login")
+          }
+          // return json;
+        })
     }
   }
   //   props: {
