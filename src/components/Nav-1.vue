@@ -1,7 +1,4 @@
-<script>
-import ggeneral from './general'
 
-</script>
 <template>
 
   <div class="hello">
@@ -31,15 +28,27 @@ import ggeneral from './general'
 
       
 
-      <b-nav-item href="#">Login</b-nav-item>
+      <b-nav-item v-b-modal.modal1 href="#">Login</b-nav-item>
 
-      <b-nav-item href="#">Signup</b-nav-item>
+      <b-nav-item v-on:click="onClick(4)">Signup</b-nav-item>
       <b-nav-item href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
     </b-navbar-nav>
 
   </b-collapse>
 </b-navbar>
-
+ <b-modal id="modal1" title="LOGIN!">
+     <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" v-model="username" name="username" class="form-control" :class="{ 'is-invalid': submitted && !username }" />
+                <div v-show="submitted && !username" class="invalid-feedback">Username is required</div>
+            </div>
+            <div class="form-group">
+                <label htmlFor="password">Password</label>
+                <input type="password" v-model="password" name="password" class="form-control" :class="{ 'is-invalid': submitted && !password }" />
+                <div v-show="submitted && !password" class="invalid-feedback">Password is required</div>
+            </div>
+  </b-modal>
+  
   </div>
 </template>
 
