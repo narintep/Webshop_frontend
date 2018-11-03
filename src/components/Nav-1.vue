@@ -34,7 +34,7 @@ import ggeneral from './Generals'
       <b-nav-item href="#">Login</b-nav-item>
 
       <b-nav-item href="#">Signup</b-nav-item>
-      <b-nav-item href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
+      <b-nav-item v-on:click="onClick(3)" href="#"><img src="./../assets/cart.png" height="25" width="25">  </b-nav-item>
     </b-navbar-nav>
 
   </b-collapse>

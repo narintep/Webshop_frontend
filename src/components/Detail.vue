@@ -12,14 +12,18 @@
       <b-col>
         <h1>General candle</h1>
         <b-row>
-          <b-col>
-            <p>size:</p>
+          <!-- <b-col> -->
+            <!-- <p>size:</p> -->
+          <!-- </b-col> -->
+            <b-col>
+              <b-form-group id="exampleInputGroup3" label="Size:" label-for="exampleInput3">
+              <b-form-select id="exampleInput3" :options="size" required v-model="size_select">
+              </b-form-select>
+            </b-form-group>
           </b-col>
-          <b-input type="number" v-model2="number" required placeholder="Enter value">
-            </b-input>
           <b-col>
             <p>number:</p>
-            <b-input type="number" v-model="number" required placeholder="Enter value">
+            <b-input type="number" min="1" v-model="number" required placeholder="Enter value">
             </b-input>
           </b-col>
         </b-row>
@@ -31,7 +35,7 @@
             </b-form-group>
           </b-col>
           <b-col>
-            <b-form-group id="exampleInputGroup3" label="Smell 1:" label-for="exampleInput3">
+            <b-form-group id="exampleInputGroup3" label="Smell 2:" label-for="exampleInput3">
               <b-form-select id="exampleInput3" :options="smell" required v-model="smell2">
               </b-form-select>
             </b-form-group>
@@ -40,7 +44,7 @@
         </b-row>
         <b-row>
           <b-col>
-            <p>Price:13$</p>
+            <p>TotalPrice:{{number*(smell1+smell2+size_select)}}$</p>
           </b-col>
           <b-col>
             <b-button variant="primary" v-on:click="Buy">Buy</b-button>
@@ -74,6 +78,45 @@ img:hover {
 }
 </style>
 <script>
+const _ = require('lodash');
+var arr2 = [];
+var arr3=[];
+var arr4=[];
+
+fetch("http://localhost:3000/api/size")
+        .then(function(data) {
+          return data.json();
+        })
+        .then(function(json) {
+          // console.log(json);
+          // arr2 = json;
+          return json;
+        }).then(function(data){
+          arr4=_.map(data, item => {
+         return {
+        value: item.price_per_size,
+        text: item.name,
+    }
+     });
+        });
+
+fetch("http://localhost:3000/api/smell")
+        .then(function(data) {
+          return data.json();
+        })
+        .then(function(json) {
+          // console.log(json);
+          // arr2 = json;
+          return json;
+        }).then(function(data){
+          arr3=_.map(data, item => {
+         return {
+        value: item.cost,
+        text: item.name,
+    }
+     });
+        });
+
 var arr = [];
 fetch("http://localhost:3000/api/PurchasedItem")
         .then(function(data) {
@@ -90,56 +133,21 @@ fetch("http://localhost:3000/api/PurchasedItem")
     },
     data() {
       return {
-        smell1: null,
-        smell2: null,
-        number: null,
+        smell1: 0,
+        smell2: 0,
+        number: 1,
+        realList2:arr2,
          realList:arr,
-        smell: [{
-            text: "Select One",
-            value: null
-          },
-          {
-            text: "Standard",
-            value: 1
-          },
-          "Aromatic",
-          "Sporty",
-          "Clam"
-        ],
-        show: true
+        smell: arr3,
+        show: true,
+        size:arr4,
+        size_select:50,
       };
     },
     methods: {
       Buy() {
-        alert(this.smell1 + this.smell2);
+        alert(this.smell1)
       }
     }
   };
-</script>
-<script>
-var arr = [];
-fetch("http://localhost:3000/api/expense")
-  .then(function(data) {
-    return data.json();
-  })
-  .then(function(json) {
-    // console.log(json);
-    arr = json;
-  });
-export default {
-  name: "HelloWorld",
-  props: {
-    arr: Array
-  },
-  data() {
-    return {
-      realList: arr
-    };
-  },
-  methods: {
-    onClick(event) {
-      this.$emit("clicked", event);
-    }
-  }
-};
 </script>
