@@ -7,12 +7,9 @@ import Body from './components/Body.vue'
 import Nav1 from './components/Nav-1.vue'
 import List from './components/List.vue'
 import Detail from './components/Detail.vue'
-<<<<<<< HEAD
 import WaitingList from './components/WaitingList.vue'
-=======
 
 import Signup from './components/Signup.vue'
->>>>>>> 0deb8dac533079142000f48027ecfd6325b6441f
 // import purchased_item from './purchased_item'
 // import {
 //   Sequelize,
