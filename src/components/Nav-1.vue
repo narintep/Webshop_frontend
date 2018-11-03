@@ -31,7 +31,7 @@
       <b-nav-item v-b-modal.modal1 v-if="user==null" href="#">Login</b-nav-item>
       <b-nav-item v-if="user!=null" href="#">{{user.username}}</b-nav-item>
       <b-nav-item v-if="user==null" v-on:click="onClick(4)">Signup</b-nav-item>
-      <b-nav-item href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
+      <b-nav-item v-on:click="onClick(3)" href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
     </b-navbar-nav>
 
   </b-collapse>
