@@ -45,12 +45,9 @@ Vue.component('Body', Body)
 Vue.component('Nav1', Nav1)
 Vue.component('List', List)
 Vue.component('Detail', Detail)
-<<<<<<< HEAD
 Vue.component('WaitingList', WaitingList)
-=======
 
 Vue.component('Signup', Signup)
->>>>>>> 0deb8dac533079142000f48027ecfd6325b6441f
 Vue.config.productionTip = false
 new Vue({
   render: h => h(App)
