@@ -28,12 +28,12 @@
 
       
 
-      <b-nav-item v-b-modal.modal1 v-if="user==null" href="#">Login</b-nav-item>
-      <b-nav-item-dropdown v-if="user!=null" :text="user.username" right>
+      <b-nav-item v-b-modal.modal1 v-if="user_data==null" href="#">Login</b-nav-item>
+      <b-nav-item-dropdown v-if="user_data!=null" :text="user_data.username" right>
          <b-dropdown-item-button v-on:click="logout">logout</b-dropdown-item-button>
         <b-dropdown-item-button v-on:click="onClick(5)">edit profile</b-dropdown-item-button>
       </b-nav-item-dropdown>
-      <b-nav-item v-if="user==null" v-on:click="onClick(4)">Signup</b-nav-item>
+      <b-nav-item v-if="user_data==null" v-on:click="onClick(4)">Signup</b-nav-item>
       <b-nav-item v-on:click="onClick(3)" href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
     </b-navbar-nav>
 
@@ -42,13 +42,13 @@
  <b-modal @ok="login" id="modal1" title="LOGIN!">
      <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" v-model="username" name="username" class="form-control" :class="{ 'is-invalid': submitted && !username }" />
-                <div v-show="submitted && !username" class="invalid-feedback">Username is required</div>
+                <input type="text" v-model="username" name="username" class="form-control" :class="{ 'is-invalid':  !username }" />
+                <div v-show=" !username" class="invalid-feedback">Username is required</div>
             </div>
             <div class="form-group">
                 <label htmlFor="password">Password</label>
-                <input type="password" v-model="password" name="password" class="form-control" :class="{ 'is-invalid': submitted && !password }" />
-                <div v-show="submitted && !password" class="invalid-feedback">Password is required</div>
+                <input type="password" v-model="password" name="password" class="form-control" :class="{ 'is-invalid': !password }" />
+                <div v-show=" !password" class="invalid-feedback">Password is required</div>
             </div>
   </b-modal>
   
@@ -56,40 +56,56 @@
 </template>
 
 <script>
-var data=null;
+import { mapActions, mapGetters } from "vuex";
+var data = null;
 
 export default {
   name: "HelloWorld",
   data() {
     return {
-      user: null
+      username:'',
+      password:''
     };
   },
+  computed: {
+    ...mapGetters({
+      user_data: 'Customer/user_data'
+    }),
+  },
   methods: {
-    onClick (event) {
-      this.$emit('clicked', event)
+    ...mapActions({
+      setCustomer: "Customer/setCustomer"
+    }),
+    onClick(event) {
+      this.$emit("clicked", event);
     },
-    logout(){
-      this.user=null
-    }
-    ,login(){
-      var self=this;
-      fetch("http://localhost:3000/api/customers/"+this.username+"/"+this.password) .then(function(data) {
+    logout() {
+      this.setCustomer(null);
+    },
+    login() {
+      var self = this;
+      fetch(
+        "http://localhost:3000/api/customers/" +
+          this.username +
+          "/" +
+          this.password
+      )
+        .then(function(data) {
           return data.json();
         })
         .then(function(json) {
           // console.log(json);
           // arr2 = json;
-          if(json.length>0){
-           data=json[0]
-           self.user=data
-            alert("success login")
-          }else
-          {
-            alert("cannot login")
+          if (json.length > 0) {
+            data = json[0];
+            let user = data;
+            self.setCustomer(user);
+            alert("success login");
+          } else {
+            alert("cannot login");
           }
           // return json;
-        })
+        });
     }
   }
   //   props: {
@@ -98,7 +114,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

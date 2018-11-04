@@ -10,36 +10,17 @@ import Detail from './components/Detail.vue'
 import WaitingList from './components/WaitingList.vue'
 import Signup from './components/Signup.vue'
 import Edit from './components/Edit.vue'
-// import purchased_item from './purchased_item'
-// import {
-//   Sequelize,
-//   sequelize
-// } from "./connections";
 
 
-// sequelize
-//   .authenticate()
-//   .then(() => {
-//     console.log('Connection has been established successfully.');
-//   })
-//   .catch(err => {
-//     console.error('Unable to connect to the database:', err);
-//   });
-// console.log(purchased_item.findAll())
-// async function name() {
-//   const purchased_item_model = await purchased_item.findAll();
-//   console.log(purchased_item_model)
-// }
-// purchased_item_model.findAll().then(item => {
-//   console.log(item)
-// })
-// import purchased_item from './purchased_item_2'
-//  async function name() {
-//   const test= await purchased_item();
-//   await console.log(test)
-// }
-// name();
-
+import Vuetify from 'vuetify'
+import store from './store'
+ 
+// import 'vuetify/src/stylus/main.styl'
+ 
+Vue.use(Vuetify)
+ 
+Vue.config.productionTip = false
+ 
 Vue.use(BootstrapVue);
 Vue.component('Body', Body)
 Vue.component('Nav1', Nav1)
@@ -50,5 +31,6 @@ Vue.component('Edit', Edit)
 Vue.component('Signup', Signup)
 Vue.config.productionTip = false
 new Vue({
+  store,
   render: h => h(App)
 }).$mount('#app')

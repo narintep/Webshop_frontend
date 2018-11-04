@@ -8,7 +8,7 @@
     <Detail v-if="state==2" :input="id" />
     <WaitingList  v-if="state==3" v-on:clicked="setState3"  v-bind:arr="list" />
     <Signup v-if="state==4" v-on:clicked="setState4" />
-    <Edit v-if="state==5" v-on:clicked="setState5" />
+    <Edit v-if="state==5"  />
     <!-- <Nav2 /> -->
   </div>
 </template>
