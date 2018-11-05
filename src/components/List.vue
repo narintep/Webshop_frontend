@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
       <b-row style="margin-left:25px;">
+        
       <div class="mar" v-for="(i,index) in realList"  :key="index">
   <b-card :title="i.candle_type.name"
           img-alt="Image"
@@ -10,7 +11,7 @@
           class="mb-2">
            <img :src="require('./candle/'+i.candle_type.name+'/'+i.size_id+'.png')" width=180 height="200">
           
-    <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price}} </p>
+    <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price+50}} </p>
     
     <b-button variant="primary" v-on:click="onClick(2,i.id)">Detail</b-button>
   </b-card>
@@ -19,29 +20,22 @@
   </div>
 </template>
 <script>
-var arr = [];
-fetch("http://localhost:3000/api/PurchasedItem")
-  .then(function(data) {
-    return data.json();
-  })
-  .then(function(json) {
-    // console.log(json);
-    arr = json;
-  });
+import axios from 'axios';
 export default {
   name: "HelloWorld",
-  props: {
-    arr: Array
-  },
+  props: ['realList'],
   data() {
     return {
-      realList: arr
+      
     };
   },
   methods: {
-    onClick(event,event2) {
-      this.$emit("clicked", [event,event2]);
+    onClick(event, event2) {
+      this.$emit("clicked", [event, event2]);
     }
+  },
+  computed: {
+    
   }
 };
 </script>

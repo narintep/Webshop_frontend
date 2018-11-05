@@ -11,15 +11,15 @@
   <b-collapse is-nav id="nav_collapse">
 
      <b-navbar-nav>
-      <b-nav-item v-on:click="onClick(1)" >Promotions</b-nav-item>
-      <b-nav-item v-on:click="onClick(1)">Most Views</b-nav-item>
-      <b-nav-item v-on:click="onClick(1)">Top Sells</b-nav-item>
+      <b-nav-item v-on:click="onClick(1,0)" >Promotions</b-nav-item>
+      <b-nav-item v-on:click="onClick(1,1)">Most Views</b-nav-item>
+      <b-nav-item v-on:click="onClick(1,2)">Top Sells</b-nav-item>
        <b-nav-item-dropdown text="Categories" right>
-        <b-dropdown-item v-on:click="onClick(1)">Generals</b-dropdown-item>
+        <b-dropdown-item v-on:click="onClick(1,3)">Generals</b-dropdown-item>
          
-        <b-dropdown-item v-on:click="onClick(1)">Flowers</b-dropdown-item>
-        <b-dropdown-item v-on:click="onClick(1)">Geoshapes</b-dropdown-item>
-        <b-dropdown-item v-on:click="onClick(1)">Symbols</b-dropdown-item>
+        <b-dropdown-item v-on:click="onClick(1,4)">Flowers</b-dropdown-item>
+        <b-dropdown-item v-on:click="onClick(1,5)">Geoshapes</b-dropdown-item>
+        <b-dropdown-item v-on:click="onClick(1,6)">Symbols</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
 
@@ -76,8 +76,8 @@ export default {
     ...mapActions({
       setCustomer: "Customer/setCustomer"
     }),
-    onClick(event) {
-      this.$emit("clicked", event);
+    onClick(event,event2) {
+      this.$emit("clicked", [event,event2]);
     },
     logout() {
       this.setCustomer(null);
@@ -100,7 +100,7 @@ export default {
             data = json[0];
             let user = data;
             self.setCustomer(user);
-            alert("success login");
+            
           } else {
             alert("cannot login");
           }

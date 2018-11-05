@@ -44,7 +44,7 @@
         </b-row>
         <b-row>
           <b-col>
-            <p>TotalPrice:{{number*(smell1+smell2+size_select)}}$</p>
+            <p>TotalPrice:{{number*(smell1+smell2+size_select+i.price)}}$</p>
           </b-col>
           <b-col>
             <b-button variant="primary" v-on:click="Buy">Buy</b-button>
