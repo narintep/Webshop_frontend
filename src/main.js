@@ -10,6 +10,7 @@ import Detail from './components/Detail.vue'
 import WaitingList from './components/WaitingList.vue'
 import Signup from './components/Signup.vue'
 import Edit from './components/Edit.vue'
+import Database from './components/Database.vue'
 
 
 import Vuetify from 'vuetify'
@@ -29,6 +30,7 @@ Vue.component('Detail', Detail)
 Vue.component('WaitingList', WaitingList)
 Vue.component('Edit', Edit)
 Vue.component('Signup', Signup)
+Vue.component('Database', Database)
 Vue.config.productionTip = false
 new Vue({
   store,
