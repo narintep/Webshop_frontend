@@ -11,6 +11,10 @@ import WaitingList from './components/WaitingList.vue'
 import Signup from './components/Signup.vue'
 import Edit from './components/Edit.vue'
 import Database from './components/Database.vue'
+import Purchased from './components/table/purchased.vue'
+import candlet from './components/table/candlet.vue'
+import customer from './components/table/customer.vue'
+
 
 
 import Vuetify from 'vuetify'
@@ -24,6 +28,7 @@ Vue.config.productionTip = false
  
 Vue.use(BootstrapVue);
 Vue.component('Body', Body)
+Vue.component('Purchased', Purchased)
 Vue.component('Nav1', Nav1)
 Vue.component('List', List)
 Vue.component('Detail', Detail)
@@ -31,6 +36,8 @@ Vue.component('WaitingList', WaitingList)
 Vue.component('Edit', Edit)
 Vue.component('Signup', Signup)
 Vue.component('Database', Database)
+Vue.component('Candlet', candlet)
+Vue.component('Customer', customer)
 Vue.config.productionTip = false
 new Vue({
   store,
