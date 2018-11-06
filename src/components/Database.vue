@@ -66,7 +66,7 @@ export default {
           self.history = data;
         });
          axios
-        .get('http://localhost:3000/api/invioce')
+        .get('http://localhost:3000/api/invoice')
         .then(response => response.data)
         .then(data => {
           self.invioce = data;

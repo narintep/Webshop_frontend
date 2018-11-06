@@ -41,7 +41,6 @@ export default {
     },
     fetchData() {
       const self = this;
-      var arr = [];
       var links = "http://localhost:3000/api/PurchasedItem";
       if (this.sort === 0)
         links = "http://localhost:3000/api/PurchasedItem/promotion";
