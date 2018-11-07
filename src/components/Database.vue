@@ -1,7 +1,19 @@
 <template>
 <div>
-  <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" />
   <Candlet :datas="candlet" :fields="fields_candlet" url="http://localhost:3000/api/Candle_type" />
+  <Colors :datas="colors" :fields="fields_colors" url="http://localhost:3000/api/Colors" />
+  <Customer :datas="customer" :fields="fields_customer" url="http://localhost:3000/api/customers" />
+  <Customert :datas="customert" :fields="fields_customert" url="http://localhost:3000/api/customer_type" />
+  <Expense :datas="expense" :fields="fields_expense" url="http://localhost:3000/api/expense" />
+  <History :datas="history" :fields="fields_history" url="http://localhost:3000/api/history" />
+  <Invoice :datas="invoice" :fields="fields_invoice" url="http://localhost:3000/api/invoice" />
+  <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" />
+  <Report :datas="report" :fields="fields_report" url="http://localhost:3000/api/report" />
+  <Size :datas="size" :fields="fields_size" url="http://localhost:3000/api/size" />
+  <Smell :datas="smell" :fields="fields_smell" url="http://localhost:3000/api/smell" />
+  <Viewz :datas="view" :fields="fields_view" url="http://localhost:3000/api/view" />
+  <Waitingl :datas="waitingl" :fields="fields_waitingl" url="http://localhost:3000/api/waiting_list" />
+
 </div>
 </template>
 >
@@ -11,18 +23,30 @@ export default {
   name: "HelloWorld",
     data() {
     return {
-      fields_purchased: [ 'id', 'type_id', 'number','size_id','color_id','min_weight','price','smell_id','smell_id1','expr_date','edit','delete' ],
       fields_candlet: [ 'id','name','edit','delete' ],
+      fields_colors: [ 'id','name','edit','delete' ],
+      fields_customer: [ 'id','name','surname','age','b_date','address','username','password','customer_type_id','edit','delete' ],
+      fields_customert: [ 'id','name','edit','delete' ],
+      fields_expense: [ 'candle_type_id','price','edit','delete' ],
+      fields_history: [ 'customers_id','customers_username','purchased_item_id','number','edit','delete' ],
+      fields_invoice: [ 'id','customers_id','customers_username','purchased_item_id','price','number','date','edit','delete' ],
+      fields_purchased: [ 'id', 'type_id', 'number','size_id','color_id','min_weight','price','smell_id','smell_id1','expr_date','edit','delete' ],
+      fields_report: [ 'date','gain','earn','expense','edit','delete' ],
+      fields_size: [ 'id','name','price_per_size','edit','delete' ],
+      fields_smell: [ 'id','name','edit','delete' ],
+      fields_view: [ 'customers_id','customers_username','candle_type_id','time','edit','delete' ],
+      fields_waitingl: [ 'customers_id','customers_username','purchased_item_id','date_in','date_out','number','edit','delete' ],
+
       state: 0,
       id: 0,
       sort: 0,
       purchased: [],
       customer:[],
       history:[],
-      invioce:[],
+      invoice:[],
       report:[],
       view:[],
-      waiting_list:[],
+      waitingl:[],
       size:[],
       candlet:[],
       colors:[],
@@ -66,10 +90,10 @@ export default {
           self.history = data;
         });
          axios
-        .get('http://localhost:3000/api/invioce')
+        .get('http://localhost:3000/api/invoice')
         .then(response => response.data)
         .then(data => {
-          self.invioce = data;
+          self.invoice = data;
         });
          axios
         .get('http://localhost:3000/api/report')
@@ -87,7 +111,7 @@ export default {
         .get('http://localhost:3000/api/waiting_list')
         .then(response => response.data)
         .then(data => {
-          self.waiting_list = data;
+          self.waitingl = data;
         });
         axios
         .get('http://localhost:3000/api/size')
