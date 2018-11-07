@@ -3,15 +3,15 @@
   <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" v-on:reFetch="fetchData" />
   <Candlet :datas="candlet" :fields="fields_candlet" url="http://localhost:3000/api/Candle_type" />
   <Colors :datas="colors" :fields="fields_colors" url="http://localhost:3000/api/Colors" />
-  <Customer :datas="customer" :fields="fields_customer" url="http://localhost:3000/api/customers" />
-  <Customert :datas="customert" :fields="fields_customert" url="http://localhost:3000/api/customer_type" />
+  <Customer :datas="customer" :fields="fields_customer" url="http://localhost:3000/api/customers"  v-on:reFetch="fetchData" />
+  <Customert :datas="customert" :fields="fields_customert" url="http://localhost:3000/api/customer_type" v-on:reFetch="fetchData" />
   <Expense :datas="expense" :fields="fields_expense" url="http://localhost:3000/api/expense" />
   <History :datas="history" :fields="fields_history" url="http://localhost:3000/api/history" />
-  <Invoice :datas="invoice" :fields="fields_invoice" url="http://localhost:3000/api/invoice" />
+  <Invoice :datas="invoice" :fields="fields_invoice" url="http://localhost:3000/api/invoice" v-on:reFetch="fetchData" />
   <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" />
   <Report :datas="report" :fields="fields_report" url="http://localhost:3000/api/report" />
-  <Size :datas="size" :fields="fields_size" url="http://localhost:3000/api/size" />
-  <Smell :datas="smell" :fields="fields_smell" url="http://localhost:3000/api/smell" />
+  <Size :datas="size" :fields="fields_size" url="http://localhost:3000/api/size" v-on:reFetch="fetchData" />
+  <Smell :datas="smell" :fields="fields_smell" url="http://localhost:3000/api/smell" v-on:reFetch="fetchData" />
   <Viewz :datas="view" :fields="fields_view" url="http://localhost:3000/api/view" />
   <Waitingl :datas="waitingl" :fields="fields_waitingl" url="http://localhost:3000/api/waiting_list" />
 

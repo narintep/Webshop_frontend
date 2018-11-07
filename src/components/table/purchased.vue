@@ -173,12 +173,12 @@ export default {
     async onSubmit(evt) {
       evt.preventDefault();
      await axios.post(this.url, this.item);
-       this.$emit("reFetch");
+       this.$emit("reFetch");this.item={};
     },
     onReset (evt) {
       evt.preventDefault();
       /* Reset our form values */
-      this.item={}
+      this.item={};
     }
   }
 };
