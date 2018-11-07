@@ -11,9 +11,21 @@ import WaitingList from './components/WaitingList.vue'
 import Signup from './components/Signup.vue'
 import Edit from './components/Edit.vue'
 import Database from './components/Database.vue'
+
 import Purchased from './components/table/purchased.vue'
 import candlet from './components/table/candlet.vue'
 import customer from './components/table/customer.vue'
+
+import colors from './components/table/colors.vue'
+import customert from './components/table/customert.vue'
+import expense from './components/table/expense.vue'
+import history from './components/table/history.vue'
+import invoice from './components/table/invoice.vue'
+import report from './components/table/report.vue'
+import size from './components/table/size.vue'
+import smell from './components/table/smell.vue'
+import view from './components/table/view.vue'
+import waitingl from './components/table/waitingl.vue'
 
 
 
@@ -38,6 +50,17 @@ Vue.component('Signup', Signup)
 Vue.component('Database', Database)
 Vue.component('Candlet', candlet)
 Vue.component('Customer', customer)
+
+Vue.component('Colors', colors)
+Vue.component('Customert', customert)
+Vue.component('Expense', expense)
+Vue.component('History', history)
+Vue.component('Invoice', invoice)
+Vue.component('Report', report)
+Vue.component('Size', size)
+Vue.component('Smell', smell)
+Vue.component('Viewz', view)
+Vue.component('Waitingl', waitingl)
 Vue.config.productionTip = false
 new Vue({
   store,

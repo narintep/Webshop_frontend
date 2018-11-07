@@ -4,11 +4,11 @@
     <!-- <div class="mar" v-for="(i,index) in realList"  :key="index"> -->
 
   <!-- Using modifiers -->
-  <b-btn v-b-toggle.collapse2 class="m-1">Candle_type</b-btn>
+  <b-btn v-b-toggle.collapse6 class="m-1">Expense</b-btn>
   <!-- element to collapse -->
   
   
-  <b-collapse id="collapse2">
+  <b-collapse id="collapse6">
     <b-card>
        <b-table striped hover :items="datas" :fields="fields">
          <template slot="edit" slot-scope="row">
@@ -26,24 +26,24 @@
       <b-card>
         <b-row class="mb-2">
            <b-form-group id="exampleInputGroup1"
-                    label="Id:"
+                    label="Candle_type_id:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="number"
-                      v-model="row.item.id"
+                      v-model="row.item.candle_type_id"
                       required disabled
-                      placeholder="Enter id">
+                      placeholder="Enter Candle_type_id">
         </b-form-input>
       </b-form-group>
 
       <b-form-group id="exampleInputGroup1"
-                    label="Name:"
+                    label="Price:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="row.item.name"
+                      type="number"
+                      v-model="row.item.price"
                       required
-                      placeholder="Enter Name">
+                      placeholder="Enter Price">
         </b-form-input>
       </b-form-group>
 
@@ -57,30 +57,31 @@
 
 
        </b-table>
-       <b-button size="sm" v-b-toggle.Add2 variant="success" class="mr-2"> Add
+       <b-button size="sm" v-b-toggle.Add6 variant="success" class="mr-2"> Add
       </b-button>
-      <b-collapse id="Add2">
+      <b-collapse id="Add6">
   <b-card>
         <b-row class="mb-2">
+           
            <b-form-group id="exampleInputGroup1"
-                    label="Id:"
+                    label="Candle_type_id:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="number"
-                      v-model="item.id"
+                      v-model="item.candle_type_id"
                       required disabled
-                      placeholder="Enter id">
+                      placeholder="Enter Candle_type_id">
         </b-form-input>
       </b-form-group>
 
       <b-form-group id="exampleInputGroup1"
-                    label="Name:"
+                    label="Price:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="item.name"
+                      type="number"
+                      v-model="item.price"
                       required
-                      placeholder="Enter Name">
+                      placeholder="Enter Price">
         </b-form-input>
       </b-form-group>
 

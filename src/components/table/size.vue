@@ -4,11 +4,11 @@
     <!-- <div class="mar" v-for="(i,index) in realList"  :key="index"> -->
 
   <!-- Using modifiers -->
-  <b-btn v-b-toggle.collapse2 class="m-1">Candle_type</b-btn>
+  <b-btn v-b-toggle.collapse10 class="m-1">Size</b-btn>
   <!-- element to collapse -->
   
   
-  <b-collapse id="collapse2">
+  <b-collapse id="collapse10">
     <b-card>
        <b-table striped hover :items="datas" :fields="fields">
          <template slot="edit" slot-scope="row">
@@ -32,7 +32,7 @@
                       type="number"
                       v-model="row.item.id"
                       required disabled
-                      placeholder="Enter id">
+                      placeholder="Enter Id">
         </b-form-input>
       </b-form-group>
 
@@ -47,6 +47,21 @@
         </b-form-input>
       </b-form-group>
 
+      <b-form-group id="exampleInputGroup1"
+                    label="Price_per_size:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="row.item.price_per_size"
+                      required
+                      placeholder="Enter Price_per_size">
+        </b-form-input>
+      </b-form-group>
+
+      
+
+     
+
       
         </b-row>
     
@@ -57,19 +72,20 @@
 
 
        </b-table>
-       <b-button size="sm" v-b-toggle.Add2 variant="success" class="mr-2"> Add
+       <b-button size="sm" v-b-toggle.Add10 variant="success" class="mr-2"> Add
       </b-button>
-      <b-collapse id="Add2">
+      <b-collapse id="Add10">
   <b-card>
         <b-row class="mb-2">
-           <b-form-group id="exampleInputGroup1"
+           
+            <b-form-group id="exampleInputGroup1"
                     label="Id:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="number"
                       v-model="item.id"
-                      required disabled
-                      placeholder="Enter id">
+                     required disabled
+                      placeholder="Enter Id">
         </b-form-input>
       </b-form-group>
 
@@ -83,6 +99,20 @@
                       placeholder="Enter Name">
         </b-form-input>
       </b-form-group>
+
+      <b-form-group id="exampleInputGroup1"
+                    label="Price_per_size:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="item.price_per_size"
+                      required
+                      placeholder="Enter Price_per_size">
+        </b-form-input>
+      </b-form-group>
+
+
+
 
         </b-row>
     

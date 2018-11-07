@@ -4,11 +4,11 @@
     <!-- <div class="mar" v-for="(i,index) in realList"  :key="index"> -->
 
   <!-- Using modifiers -->
-  <b-btn v-b-toggle.collapse5 class="m-1">Customer</b-btn>
+  <b-btn v-b-toggle.collapse8 class="m-1">Invoice</b-btn>
   <!-- element to collapse -->
   
   
-  <b-collapse id="collapse5">
+  <b-collapse id="collapse8">
     <b-card>
        <b-table striped hover :items="datas" :fields="fields">
          <template slot="edit" slot-scope="row">
@@ -32,98 +32,76 @@
                       type="number"
                       v-model="row.item.id"
                       required disabled
-                      placeholder="Enter id">
+                      placeholder="Enter Id">
         </b-form-input>
       </b-form-group>
 
       <b-form-group id="exampleInputGroup1"
-                    label="Name:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="row.item.name"
-                      required
-                      placeholder="Enter Name">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Surname:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="row.item.surname"
-                      required
-                      placeholder="Enter Surname">
-        </b-form-input>
-      </b-form-group>
-
-    <b-form-group id="exampleInputGroup1"
-                    label="Age:"
+                    label="Customers_id:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="number"
-                      v-model="row.item.age"
+                      v-model="row.item.customers_id"
                       required
-                      placeholder="Enter Age">
+                      placeholder="Enter Customers_id">
         </b-form-input>
       </b-form-group>
 
-       <b-form-group id="exampleInputGroup1"
-                    label="B_date:"
+      <b-form-group id="exampleInputGroup1"
+                    label="Customers_username:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="text"
+                      v-model="row.item.customers_username"
+                      required
+                      placeholder="Enter Customers_username">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="exampleInputGroup1"
+                    label="Purchased_item_id:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="row.item.purchased_item_id"
+                      required
+                      placeholder="Enter Purchased_item_id">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="exampleInputGroup1"
+                    label="Price:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="row.item.price"
+                      required
+                      placeholder="Enter Price">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="exampleInputGroup1"
+                    label="Number:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="row.item.number"
+                      required
+                      placeholder="Enter Number">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="exampleInputGroup1"
+                    label="Date:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="date"
-                      v-model="row.item.b_date"
+                      v-model="row.item.date"
                       required
-                      placeholder="Enter B_date">
+                      placeholder="Enter Date">
         </b-form-input>
       </b-form-group>
 
-      <b-form-group id="exampleInputGroup1"
-                    label="Address:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="row.item.address"
-                      required
-                      placeholder="Enter Address">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Username:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="row.item.username"
-                      required
-                      placeholder="Enter Username">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Password:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="row.item.password"
-                      required
-                      placeholder="Enter Password">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Customer_type_id:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="number"
-                      v-model="row.item.customer_type_id"
-                      required
-                      placeholder="Enter Customer_type_id">
-        </b-form-input>
-      </b-form-group>
-      
       
         </b-row>
     
@@ -134,110 +112,89 @@
 
 
        </b-table>
-       <b-button size="sm" v-b-toggle.Add5 variant="success" class="mr-2"> Add
+       <b-button size="sm" v-b-toggle.Add8 variant="success" class="mr-2"> Add
       </b-button>
-      <b-collapse id="Add5">
+      <b-collapse id="Add8">
   <b-card>
         <b-row class="mb-2">
-           <b-form-group id="exampleInputGroup1"
+           
+            <b-form-group id="exampleInputGroup1"
                     label="Id:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="number"
                       v-model="item.id"
                       required disabled
-                      placeholder="Enter id">
+                      placeholder="Enter Id">
         </b-form-input>
       </b-form-group>
 
       <b-form-group id="exampleInputGroup1"
-                    label="Name:"
+                    label="Customers_id:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="number"
-                      v-model="item.name"
+                      v-model="item.customers_id"
                       required
-                      placeholder="Enter Name">
+                      placeholder="Enter Customers_id">
         </b-form-input>
       </b-form-group>
 
       <b-form-group id="exampleInputGroup1"
-                    label="Surname:"
+                    label="Customers_username:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="text"
-                      v-model="item.surname"
+                      v-model="item.customers_username"
                       required
-                      placeholder="Enter Surname">
+                      placeholder="Enter Customers_username">
         </b-form-input>
       </b-form-group>
 
-    <b-form-group id="exampleInputGroup1"
-                    label="Age:"
+      <b-form-group id="exampleInputGroup1"
+                    label="Purchased_item_id:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="number"
-                      v-model="item.age"
+                      v-model="item.purchased_item_id"
                       required
-                      placeholder="Enter Age">
+                      placeholder="Enter Purchased_item_id">
         </b-form-input>
       </b-form-group>
 
-       <b-form-group id="exampleInputGroup1"
-                    label="B_date:"
+      <b-form-group id="exampleInputGroup1"
+                    label="Price:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="item.price"
+                      required
+                      placeholder="Enter Price">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="exampleInputGroup1"
+                    label="Number:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="item.number"
+                      required
+                      placeholder="Enter Number">
+        </b-form-input>
+      </b-form-group>
+
+      <b-form-group id="exampleInputGroup1"
+                    label="Date:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="date"
-                      v-model="item.b_date"
+                      v-model="item.date"
                       required
-                      placeholder="Enter B_date">
+                      placeholder="Enter Date">
         </b-form-input>
       </b-form-group>
 
-      <b-form-group id="exampleInputGroup1"
-                    label="Address:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="item.address"
-                      required
-                      placeholder="Enter Address">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Username:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="item.username"
-                      required
-                      placeholder="Enter Username">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Password:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="item.password"
-                      required
-                      placeholder="Enter Password">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Customer_type_id:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="number"
-                      v-model="item.customer_type_id"
-                      required
-                      placeholder="Enter Customer_type_id">
-        </b-form-input>
-      </b-form-group>
-      
 
         </b-row>
     

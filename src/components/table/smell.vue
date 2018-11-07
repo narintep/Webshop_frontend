@@ -4,11 +4,11 @@
     <!-- <div class="mar" v-for="(i,index) in realList"  :key="index"> -->
 
   <!-- Using modifiers -->
-  <b-btn v-b-toggle.collapse2 class="m-1">Candle_type</b-btn>
+  <b-btn v-b-toggle.collapse11 class="m-1">Smell</b-btn>
   <!-- element to collapse -->
   
   
-  <b-collapse id="collapse2">
+  <b-collapse id="collapse11">
     <b-card>
        <b-table striped hover :items="datas" :fields="fields">
          <template slot="edit" slot-scope="row">
@@ -57,9 +57,9 @@
 
 
        </b-table>
-       <b-button size="sm" v-b-toggle.Add2 variant="success" class="mr-2"> Add
+       <b-button size="sm" v-b-toggle.Add11 variant="success" class="mr-2"> Add
       </b-button>
-      <b-collapse id="Add2">
+      <b-collapse id="Add11">
   <b-card>
         <b-row class="mb-2">
            <b-form-group id="exampleInputGroup1"
