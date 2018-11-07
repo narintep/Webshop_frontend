@@ -1,6 +1,6 @@
 <template>
 <div>
-  <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" />
+  <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" v-on:reFetch="fetchData" />
   <Candlet :datas="candlet" :fields="fields_candlet" url="http://localhost:3000/api/Candle_type" />
 </div>
 </template>
