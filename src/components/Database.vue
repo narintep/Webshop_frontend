@@ -1,19 +1,19 @@
 <template>
 <div>
   <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" v-on:reFetch="fetchData" />
-  <Candlet :datas="candlet" :fields="fields_candlet" url="http://localhost:3000/api/Candle_type" />
-  <Colors :datas="colors" :fields="fields_colors" url="http://localhost:3000/api/Colors" />
+  <Candlet :datas="candlet" :fields="fields_candlet" url="http://localhost:3000/api/Candle_type"  v-on:reFetch="fetchData" />
+  <Colors :datas="colors" :fields="fields_colors" url="http://localhost:3000/api/Colors"  v-on:reFetch="fetchData" />
   <Customer :datas="customer" :fields="fields_customer" url="http://localhost:3000/api/customers"  v-on:reFetch="fetchData" />
   <Customert :datas="customert" :fields="fields_customert" url="http://localhost:3000/api/customer_type" v-on:reFetch="fetchData" />
-  <Expense :datas="expense" :fields="fields_expense" url="http://localhost:3000/api/expense" />
-  <History :datas="history" :fields="fields_history" url="http://localhost:3000/api/history" />
+  <Expense :datas="expense" :fields="fields_expense" url="http://localhost:3000/api/expense"  v-on:reFetch="fetchData" />
+  <History :datas="history" :fields="fields_history" url="http://localhost:3000/api/history" v-on:reFetch="fetchData" />
   <Invoice :datas="invoice" :fields="fields_invoice" url="http://localhost:3000/api/invoice" v-on:reFetch="fetchData" />
-  <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem" />
-  <Report :datas="report" :fields="fields_report" url="http://localhost:3000/api/report" />
+  <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem"  v-on:reFetch="fetchData" />
+  <Report :datas="report" :fields="fields_report" url="http://localhost:3000/api/report" v-on:reFetch="fetchData" />
   <Size :datas="size" :fields="fields_size" url="http://localhost:3000/api/size" v-on:reFetch="fetchData" />
   <Smell :datas="smell" :fields="fields_smell" url="http://localhost:3000/api/smell" v-on:reFetch="fetchData" />
-  <Viewz :datas="view" :fields="fields_view" url="http://localhost:3000/api/view" />
-  <Waitingl :datas="waitingl" :fields="fields_waitingl" url="http://localhost:3000/api/waiting_list" />
+  <Viewz :datas="view" :fields="fields_view" url="http://localhost:3000/api/view"  v-on:reFetch="fetchData" />
+  <Waitingl :datas="waitingl" :fields="fields_waitingl" url="http://localhost:3000/api/waiting_list"  v-on:reFetch="fetchData" />
 
 </div>
 </template>
@@ -34,7 +34,7 @@ export default {
       fields_purchased: [ 'id', 'type_id', 'number','size_id','color_id','min_weight','price','smell_id','smell_id1','expr_date','edit','delete' ],
       fields_report: [ 'date','gain','earn','expense','edit','delete' ],
       fields_size: [ 'id','name','price_per_size','edit','delete' ],
-      fields_smell: [ 'id','name','edit','delete' ],
+      fields_smell: [ 'id','name','cost','edit','delete' ],
       fields_view: [ 'customers_id','customers_username','candle_type_id','time','edit','delete' ],
       fields_waitingl: [ 'customers_id','customers_username','purchased_item_id','date_in','date_out','number','edit','delete' ],
 

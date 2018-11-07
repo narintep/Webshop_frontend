@@ -18,7 +18,7 @@
       </b-button>
     </template>
     <template slot="delete" slot-scope="row">
-      <b-button size="sm" variant="danger" class="mr-2"> Delete
+      <b-button size="sm" variant="danger"  @click="deleteRow(row.item.id)" class="mr-2"> Delete
       </b-button>
 
     </template>
@@ -51,7 +51,7 @@
         </b-row>
     
         <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        <b-button size="sm" @click="apply(row)">Apply</b-button>
+        <b-button size="sm" @click="updateRow(row.item.id,row.item)">Apply</b-button>
       </b-card>
     </template>
 

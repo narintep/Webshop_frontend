@@ -173,12 +173,8 @@ export default {
     async onSubmit(evt) {
       evt.preventDefault();
      await axios.post(this.url, this.item);
-<<<<<<< HEAD
-       this.$emit("reFetch");this.item={};
-=======
        this.$emit("reFetch");
        this.item={}
->>>>>>> 8b475415ba74b8d6029a8950250d5f43fc380a14
     },
     onReset (evt) {
       evt.preventDefault();

@@ -98,7 +98,9 @@
                       type="text"
                       v-model="row.item.username"
                       required
+                      disabled
                       placeholder="Enter Username">
+                      
         </b-form-input>
       </b-form-group>
 
@@ -128,7 +130,7 @@
         </b-row>
     
         <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        <b-button size="sm" @click="apply(row)">Apply</b-button>
+        <b-button size="sm" @click="updateRow(row.item.id,row.item)">Apply</b-button>
       </b-card>
     </template>
 

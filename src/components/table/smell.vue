@@ -18,7 +18,7 @@
       </b-button>
     </template>
     <template slot="delete" slot-scope="row">
-      <b-button size="sm" variant="danger" class="mr-2"> Delete
+      <b-button size="sm" @click="deleteRow(row.item.id)" variant="danger" class="mr-2"> Delete
       </b-button>
 
     </template>
@@ -47,11 +47,22 @@
         </b-form-input>
       </b-form-group>
 
+      <b-form-group id="exampleInputGroup1"
+                    label="Cost:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="row.item.cost"
+                      required
+                      placeholder="Enter Cost">
+        </b-form-input>
+      </b-form-group>
+
       
         </b-row>
     
         <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        <b-button size="sm" @click="apply(row)">Apply</b-button>
+        <b-button size="sm" @click="updateRow(row.item.id,row.item)">Apply</b-button>
       </b-card>
     </template>
 
@@ -82,6 +93,18 @@
                       v-model="item.name"
                       required
                       placeholder="Enter Name">
+        </b-form-input>
+      </b-form-group>
+
+      
+      <b-form-group id="exampleInputGroup1"
+                    label="Cost:"
+                    label-for="exampleInput1">
+        <b-form-input id="exampleInput1"
+                      type="number"
+                      v-model="item.cost"
+                      required
+                      placeholder="Enter Cost">
         </b-form-input>
       </b-form-group>
 
