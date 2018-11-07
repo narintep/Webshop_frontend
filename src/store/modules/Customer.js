@@ -11,6 +11,7 @@ const state = {
   const actions = {
     setCustomer: ({ commit, state }, payload) => {
       commit('SET_USER_DATA', payload)
+      
     }
   }
    

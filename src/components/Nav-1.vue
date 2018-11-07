@@ -64,24 +64,32 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      username:'',
-      password:''
+      username: "",
+      password: ""
     };
+  },
+  mounted() {
+    this.tryLogin()
   },
   computed: {
     ...mapGetters({
-      user_data: 'Customer/user_data'
-    }),
+      user_data: "Customer/user_data"
+    })
   },
   methods: {
+    tryLogin() {
+      this.setCustomer(this.$session.get("user"));
+  
+    },
     ...mapActions({
       setCustomer: "Customer/setCustomer"
     }),
-    onClick(event,event2) {
-      this.$emit("clicked", [event,event2]);
+    onClick(event, event2) {
+      this.$emit("clicked", [event, event2]);
     },
     logout() {
       this.setCustomer(null);
+      this.$session.remove('user')
     },
     login() {
       var self = this;
@@ -101,7 +109,8 @@ export default {
             data = json[0];
             let user = data;
             self.setCustomer(user);
-            
+
+            self.$session.set("user", user);
           } else {
             alert("cannot login");
           }

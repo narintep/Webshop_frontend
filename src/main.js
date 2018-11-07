@@ -31,7 +31,8 @@ import waitingl from './components/table/waitingl.vue'
 
 import Vuetify from 'vuetify'
 import store from './store'
- 
+import VueSession from 'vue-session'
+Vue.use(VueSession)
 // import 'vuetify/src/stylus/main.styl'
  
 Vue.use(Vuetify)
