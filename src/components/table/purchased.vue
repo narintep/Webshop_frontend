@@ -174,6 +174,7 @@ export default {
       evt.preventDefault();
      await axios.post(this.url, this.item);
        this.$emit("reFetch");
+       this.item={}
     },
     onReset (evt) {
       evt.preventDefault();
