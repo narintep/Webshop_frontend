@@ -26,13 +26,10 @@ import size from './components/table/size.vue'
 import smell from './components/table/smell.vue'
 import view from './components/table/view.vue'
 import waitingl from './components/table/waitingl.vue'
-
-
-
 import Vuetify from 'vuetify'
 import store from './store'
 import VueSession from 'vue-session'
-Vue.use(VueSession)
+
 // import 'vuetify/src/stylus/main.styl'
  
 Vue.use(Vuetify)
@@ -40,6 +37,7 @@ Vue.use(Vuetify)
 Vue.config.productionTip = false
  
 Vue.use(BootstrapVue);
+Vue.use(VueSession)
 Vue.component('Body', Body)
 Vue.component('Purchased', Purchased)
 Vue.component('Nav1', Nav1)

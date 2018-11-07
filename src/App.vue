@@ -30,24 +30,36 @@ export default {
   methods: {
     setState(value) {
       this.state = value;
+            this.fetchData();
     },
     setState2(value) {
       this.state = value[0];
       this.id = value[1];
+            this.fetchData();
     },
     setState3(value) {
       this.state = value[0];
       this.sort = value[1];
       this.fetchData();
     },
-    fetchData() {
+    async fetchData() {
       const self = this;
       var links = "http://localhost:3000/api/PurchasedItem";
       if (this.sort === 0)
         links = "http://localhost:3000/api/PurchasedItem/promotion";
       if (this.sort === 1)
         links = "http://localhost:3000/api/PurchasedItem/TopView";
-      return axios
+      if (this.sort === 2)
+        links = "http://localhost:3000/api/PurchasedItem/Topsale";
+      if (this.sort === 3)
+        links = "http://localhost:3000/api/PurchasedItem/type/1";
+      if (this.sort === 4)
+        links = "http://localhost:3000/api/PurchasedItem/type/2";
+      if (this.sort === 5)
+        links = "http://localhost:3000/api/PurchasedItem/type/3";
+      if (this.sort === 6)
+        links = "http://localhost:3000/api/PurchasedItem/type/4";
+      return await axios
         .get(links)
         .then(response => response.data)
         .then(data => {

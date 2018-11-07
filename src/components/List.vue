@@ -1,8 +1,9 @@
 <template>
-  <div class="hello">
+  <div >
       <b-row style="margin-left:25px;">
         
       <div class="mar" v-for="(i,index) in realList"  :key="index">
+  
   <b-card :title="i.candle_type.name"
           img-alt="Image"
           img-top
@@ -13,29 +14,33 @@
           
     <p class="card-text">size:{{i.min_weight}} <br>  price:{{i.price+50}} </p>
     
-    <b-button variant="primary" v-on:click="onClick(2,i.id)">Detail</b-button>
+    <b-button variant="primary" v-on:click="onClick(2,i)">Detail</b-button>
   </b-card>
 </div>
 </b-row>
   </div>
 </template>
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name: "HelloWorld",
-  props: ['realList'],
+  props: ["realList"],
   data() {
-    return {
-      
-    };
+    return {};
   },
+  mounted() {},
   methods: {
-    onClick(event, event2) {
-      this.$emit("clicked", [event, event2]);
+    async onClick(event, event2) {
+      const user = this.$session.get("user");
+      if (user != null)
+      
+        await axios.post("http://localhost:3000/api/view", {
+          customers_id: user.id,
+          customers_username: user.username,
+          candle_type_id:event2.type_id,
+          time:1
+        });
+      this.$emit("clicked", [event, event2.id]);
     }
-  },
-  computed: {
-    
   }
 };
 </script>
