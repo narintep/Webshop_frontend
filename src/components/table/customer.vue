@@ -214,7 +214,7 @@
         <b-form-input id="exampleInput1"
                       type="text"
                       v-model="item.username"
-                      required
+                      required disabled
                       placeholder="Enter Username">
         </b-form-input>
       </b-form-group>

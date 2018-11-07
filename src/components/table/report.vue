@@ -31,7 +31,7 @@
         <b-form-input id="exampleInput1"
                       type="date"
                       v-model="row.item.date"
-                      required 
+                      required disabled
                       placeholder="Enter Date">
         </b-form-input>
       </b-form-group>
@@ -92,8 +92,8 @@
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
                       type="date"
-                      v-model="item.id"
-                      required 
+                      v-model="item.date"
+                      required disabled
                       placeholder="Enter Date">
         </b-form-input>
       </b-form-group>
