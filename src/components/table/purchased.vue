@@ -78,7 +78,7 @@
               </b-row>
 
               <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-              <b-button size="sm" @click="apply(row)">Apply</b-button>
+              <b-button size="sm" variant="primary" @click="updateRow(row.item.id,row.item)">Apply</b-button>
             </b-card>
           </template>
 
@@ -89,7 +89,7 @@
         </b-button>
         <b-collapse id="Add1">
           <b-card>
-            <b-form>
+            <b-form @submit="onSubmit" @reset="onReset" >
               <b-row class="mb-2">
 
 
@@ -140,7 +140,8 @@
 
               </b-row>
 
-              <b-button type="submit" size="sm" @click="add()">Apply</b-button>
+                <b-button type="submit" variant="primary">Submit</b-button>
+                <b-button type="reset" variant="danger">Reset</b-button>
             </b-form>
           </b-card>
 
@@ -152,24 +153,33 @@
 </template>
 
 <script>
-  import axios from "axios";
-  export default {
-    data() {
-      return {
-        item: {}
-      }
+import axios from "axios";
+export default {
+  data() {
+    return {
+      item: {}
+    };
+  },
+  props: ["datas", "fields", "url"],
+  methods: {
+    async deleteRow(id) {
+      await axios.delete(this.url + "/" + id);
+      this.$emit("reFetch");
     },
-    props: ['datas', 'fields', 'url'],
-    methods: {
-      apply() {
-
-      },
-      deleteRow(id) {
-          return axios.delete(this.url+'/'+id)
-      },
-      add() {
-        return axios.post(this.url, this.item)
-      },
+    async updateRow(id,item) {
+      await axios.put(this.url + "/" + id,item);
+      this.$emit("reFetch");
     },
+    async onSubmit(evt) {
+      evt.preventDefault();
+     await axios.post(this.url, this.item);
+       this.$emit("reFetch");
+    },
+    onReset (evt) {
+      evt.preventDefault();
+      /* Reset our form values */
+      this.item={}
+    }
   }
+};
 </script>
