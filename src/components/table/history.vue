@@ -42,7 +42,7 @@
         <b-form-input id="exampleInput1"
                       type="text"
                       v-model="row.item.customers_username"
-                      required
+                      required disabled
                       placeholder="Enter Customers_username">
         </b-form-input>
       </b-form-group>
@@ -53,7 +53,7 @@
         <b-form-input id="exampleInput1"
                       type="number"
                       v-model="row.item.purchased_item_id"
-                      required
+                      required disabled
                       placeholder="Enter Purchased_item_id">
         </b-form-input>
       </b-form-group>
