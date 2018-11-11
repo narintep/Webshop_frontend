@@ -142,16 +142,7 @@
   <b-card>
     <b-form @submit="onSubmit" @reset="onReset" >
         <b-row class="mb-2">
-           <b-form-group id="exampleInputGroup1"
-                    label="Id:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="number"
-                      v-model="item.id"
-                      required disabled
-                      placeholder="Enter id">
-        </b-form-input>
-      </b-form-group>
+          
 
       <b-form-group id="exampleInputGroup1"
                     label="Name:"
@@ -214,7 +205,7 @@
         <b-form-input id="exampleInput1"
                       type="text"
                       v-model="item.username"
-                      required disabled
+                      required 
                       placeholder="Enter Username">
         </b-form-input>
       </b-form-group>

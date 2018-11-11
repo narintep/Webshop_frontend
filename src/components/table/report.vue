@@ -93,7 +93,7 @@
         <b-form-input id="exampleInput1"
                       type="date"
                       v-model="item.date"
-                      required disabled
+                      required 
                       placeholder="Enter Date">
         </b-form-input>
       </b-form-group>

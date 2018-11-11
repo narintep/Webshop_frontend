@@ -8,7 +8,6 @@
   <Expense :datas="expense" :fields="fields_expense" url="http://localhost:3000/api/expense"  v-on:reFetch="fetchData" />
   <History :datas="history" :fields="fields_history" url="http://localhost:3000/api/history" v-on:reFetch="fetchData" />
   <Invoice :datas="invoice" :fields="fields_invoice" url="http://localhost:3000/api/invoice" v-on:reFetch="fetchData" />
-  <Purchased :datas="purchased" :fields="fields_purchased" url="http://localhost:3000/api/PurchasedItem"  v-on:reFetch="fetchData" />
   <Report :datas="report" :fields="fields_report" url="http://localhost:3000/api/report" v-on:reFetch="fetchData" />
   <Size :datas="size" :fields="fields_size" url="http://localhost:3000/api/size" v-on:reFetch="fetchData" />
   <Smell :datas="smell" :fields="fields_smell" url="http://localhost:3000/api/smell" v-on:reFetch="fetchData" />
