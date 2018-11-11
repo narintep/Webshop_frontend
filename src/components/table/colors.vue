@@ -53,10 +53,7 @@
             <b-form @submit="onSubmit" @reset="onReset">
               <b-row class="mb-2">
 
-                <b-form-group label="Id:" label-for="exampleInput1">
-                  <b-form-input id="exampleInput1" type="number" v-model="item.id" required disabled placeholder="Enter id">
-                  </b-form-input>
-                </b-form-group>
+                
 
                 <b-form-group id="exampleInputGroup1" label="Name:" label-for="exampleInput1">
                   <b-form-input id="exampleInput1" type="text" v-model="item.name" required placeholder="Enter Name">
