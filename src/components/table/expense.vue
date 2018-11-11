@@ -69,7 +69,7 @@
         <b-form-input id="exampleInput1"
                       type="number"
                       v-model="item.candle_type_id"
-                      required disabled
+                      required 
                       placeholder="Enter Candle_type_id">
         </b-form-input>
       </b-form-group>
