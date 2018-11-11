@@ -23,8 +23,6 @@
         <b-dropdown-item v-on:click="onClick(1,6)">Symbols</b-dropdown-item>
       </b-nav-item-dropdown>
     </b-navbar-nav>
-
-    <!-- Right aligned nav items -->
     <b-navbar-nav class="ml-auto">
       <b-nav-item v-on:click="onClick(6)">Database</b-nav-item>
       
