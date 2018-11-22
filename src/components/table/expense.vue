@@ -18,7 +18,7 @@
       </b-button>
     </template>
     <template slot="delete" slot-scope="row">
-      <b-button size="sm" variant="danger" class="mr-2"> Delete
+      <b-button size="sm" variant="danger" @click="deleteRow(row.item.candle_type_id)" class="mr-2"> Delete
       </b-button>
 
     </template>
@@ -51,7 +51,7 @@
         </b-row>
     
         <b-button size="sm" @click="row.toggleDetails">Hide Details</b-button>
-        <b-button size="sm" @click="apply(row)">Apply</b-button>
+        <b-button size="sm" @click="updateRow(row.item.candle_type_id,row.item)">Apply</b-button>
       </b-card>
     </template>
 
@@ -61,6 +61,7 @@
       </b-button>
       <b-collapse id="Add6">
   <b-card>
+    <b-form @submit="onSubmit" @reset="onReset" >
         <b-row class="mb-2">
            
            <b-form-group id="exampleInputGroup1"
@@ -87,7 +88,9 @@
 
         </b-row>
     
-        <b-button size="sm" @click="apply()">Apply</b-button>
+        <b-button type="submit" variant="primary">Submit</b-button>
+        <b-button type="reset" variant="danger">Reset</b-button>
+      </b-form>
       </b-card>
 
       </b-collapse>
@@ -99,15 +102,30 @@
  <script>
 import axios from "axios";
 export default {
-    data(){return {item:{}}},
-  props:['datas','fields','url'],
-  methods:{
-    apply(row){
-      alert(this.url)
+  data() {
+    return { item: {} };
+  },
+  props: ["datas", "fields", "url"],
+  methods: {
+    async deleteRow(id) {
+      await axios.delete(this.url + "/" + id);
+      this.$emit("reFetch");
     },
-    add(){
-      alert(this.url)
+    async updateRow(id, item) {
+      await axios.put(this.url + "/" + id, item);
+      this.$emit("reFetch");
     },
-},
-}
+    async onSubmit(evt) {
+      evt.preventDefault();
+      await axios.post(this.url, this.item);
+      this.$emit("reFetch");
+      this.item = {};
+    },
+    onReset(evt) {
+      evt.preventDefault();
+      /* Reset our form values */
+      this.item = {};
+    }
+  }
+};
 </script>
