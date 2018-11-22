@@ -23,8 +23,8 @@ export default {
   name: "HelloWorld",
     data() {
     return {
-      fields_candlet: [ 'id','name','edit','delete' ],
-      fields_colors: [ 'id','name','edit','delete' ],
+      fields_candlet: [ 'id','name' ],
+      fields_colors: [ 'id','name' ],
       fields_customer: [ 'id','name','surname','age','b_date','address','username','password','customer_type_id','edit','delete' ],
       fields_customert: [ 'id','name','edit','delete' ],
       fields_expense: [ 'candle_type_id','price','edit','delete' ],

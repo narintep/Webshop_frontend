@@ -46,27 +46,7 @@
 
 
         </b-table>
-        <b-button size="sm" v-b-toggle.Add3 variant="success" class="mr-2"> Add
-        </b-button>
-        <b-collapse id="Add3">
-          <b-card>
-            <b-form @submit="onSubmit" @reset="onReset">
-              <b-row class="mb-2">
-
-                
-
-                <b-form-group id="exampleInputGroup1" label="Name:" label-for="exampleInput1">
-                  <b-form-input id="exampleInput1" type="text" v-model="item.name" required placeholder="Enter Name">
-                  </b-form-input>
-                </b-form-group>
-
-              </b-row>
-              <b-button type="submit" variant="primary">Submit</b-button>
-              <b-button type="reset" variant="danger">Reset</b-button>
-            </b-form>
-          </b-card>
-
-        </b-collapse>
+       
       </b-card>
     </b-collapse>
   </div>
