@@ -11,18 +11,8 @@
   <b-collapse id="collapse2">
     <b-card>
        <b-table striped hover :items="datas" :fields="fields">
-         <template slot="edit" slot-scope="row">
-      <!-- we use @click.stop here to prevent emitting of a 'row-clicked' event  -->
-      <b-button size="sm" @click.stop="row.toggleDetails" variant="primary" class="mr-2">
-        edit
-      </b-button>
-    </template>
-    <template slot="delete" slot-scope="row">
-            <b-button size="sm" variant="danger" @click="deleteRow(row.item.id)" class="mr-2"> Delete
-            </b-button>
-
-
-    </template>
+       
+    
 <template slot="row-details" slot-scope="row">
       <b-card>
         <b-row class="mb-2">
@@ -58,33 +48,8 @@
 
 
        </b-table>
-       <b-button size="sm" v-b-toggle.Add2 variant="success" class="mr-2"> Add
-      </b-button>
-      <b-collapse id="Add2">
-  <b-card>
-    <b-form @submit="onSubmit" @reset="onReset" >
-        <b-row class="mb-2">
-           
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Name:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="item.name"
-                      required
-                      placeholder="Enter Name">
-        </b-form-input>
-      </b-form-group>
-
-        </b-row>
-    
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button type="reset" variant="danger">Reset</b-button>
-        </b-form>
-      </b-card>
-
-      </b-collapse>
+       
+     
     </b-card>
   </b-collapse>
 </div>

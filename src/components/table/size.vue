@@ -42,7 +42,7 @@
         <b-form-input id="exampleInput1"
                       type="text"
                       v-model="row.item.name"
-                      required
+                      required disabled
                       placeholder="Enter Name">
         </b-form-input>
       </b-form-group>
@@ -72,47 +72,7 @@
 
 
        </b-table>
-       <b-button size="sm" v-b-toggle.Add10 variant="success" class="mr-2"> Add
-      </b-button>
-      <b-collapse id="Add10">
-  <b-card>
-      <b-form @submit="onSubmit" @reset="onReset" >
-        <b-row class="mb-2">
-           
-            
-      <b-form-group id="exampleInputGroup1"
-                    label="Name:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="text"
-                      v-model="item.name"
-                      required
-                      placeholder="Enter Name">
-        </b-form-input>
-      </b-form-group>
-
-      <b-form-group id="exampleInputGroup1"
-                    label="Price_per_size:"
-                    label-for="exampleInput1">
-        <b-form-input id="exampleInput1"
-                      type="number"
-                      v-model="item.price_per_size"
-                      required
-                      placeholder="Enter Price_per_size">
-        </b-form-input>
-      </b-form-group>
-
-
-
-
-        </b-row>
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button type="reset" variant="danger">Reset</b-button>
-        
-      </b-form>
-      </b-card>
-
-      </b-collapse>
+       
     </b-card>
   </b-collapse>
 </div>
