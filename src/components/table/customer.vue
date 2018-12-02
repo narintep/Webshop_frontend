@@ -18,8 +18,8 @@
       </b-button>
     </template>
     <template slot="delete" slot-scope="row">
-      <b-button size="sm" variant="danger" class="mr-2"> Delete
-      </b-button>
+      <b-button size="sm" variant="danger" @click="deleteRow(row.item.id)" class="mr-2"> Delete
+            </b-button>
 
     </template>
 <template slot="row-details" slot-scope="row">
