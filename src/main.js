@@ -11,6 +11,7 @@ import WaitingList from './components/WaitingList.vue'
 import Signup from './components/Signup.vue'
 import Edit from './components/Edit.vue'
 import Database from './components/Database.vue'
+import Information from './components/Information.vue'
 
 import Purchased from './components/table/purchased.vue'
 import candlet from './components/table/candlet.vue'
@@ -29,6 +30,7 @@ import waitingl from './components/table/waitingl.vue'
 import Vuetify from 'vuetify'
 import store from './store'
 import VueSession from 'vue-session'
+import VueMonthlyPicker from 'vue-monthly-picker'
 
 // import 'vuetify/src/stylus/main.styl'
  
@@ -38,6 +40,7 @@ Vue.config.productionTip = false
  
 Vue.use(BootstrapVue);
 Vue.use(VueSession)
+Vue.component('VueMonthlyPicker',VueMonthlyPicker);
 Vue.component('Body', Body)
 Vue.component('Purchased', Purchased)
 Vue.component('Nav1', Nav1)
@@ -60,6 +63,7 @@ Vue.component('Size', size)
 Vue.component('Smell', smell)
 Vue.component('Viewz', view)
 Vue.component('Waitingl', waitingl)
+Vue.component('Information', Information)
 Vue.config.productionTip = false
 new Vue({
   store,

@@ -8,6 +8,7 @@
     <Signup v-if="state==4" v-on:clicked="setState4" />
     <Edit v-if="state==5"  />
     <Database v-if="state==6"  />
+    <Information v-if="state==11" />
   </div>
 </template>
 
