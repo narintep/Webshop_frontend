@@ -14,7 +14,7 @@
       <b-nav-item v-on:click="onClick(1,0)" >Promotions</b-nav-item>
       <b-nav-item v-on:click="onClick(1,1)">Most Views</b-nav-item>
       <b-nav-item v-on:click="onClick(1,2)">Top Sells</b-nav-item>
-      <b-nav-item v-on:click="onClick(11)">Report</b-nav-item>
+      
       
        <b-nav-item-dropdown text="Categories" right>
         <b-dropdown-item v-on:click="onClick(1,3)">Generals</b-dropdown-item>
@@ -25,6 +25,7 @@
       </b-nav-item-dropdown>
     </b-navbar-nav>
     <b-navbar-nav class="ml-auto">
+      <b-nav-item v-on:click="onClick(11)">Report</b-nav-item>
       <b-nav-item v-on:click="onClick(6)">Database</b-nav-item>
       
 
