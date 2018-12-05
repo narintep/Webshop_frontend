@@ -1,9 +1,14 @@
 <template>
   <div class="hello">
+    <div v-if="user==null">
+      {{warn()}}
+      <br>
+      <b-row>
+        <b-col>Please login!</b-col>
+      </b-row>
+    </div>
     <b-row style="margin-left:25px;">
-      <div v-if="user==null">{{warn()}}</div>
-      <div v-if="user!=null">
-        <div class="mar" v-for="(i,index) in realList" :key="index">
+        <div v-if="user!=null" class="mar" v-for="(i,index) in realList" :key="index">
           <b-card
             v-if="i.customers_id==user.id"
             :title="i.purchased_item.candle_type.name"
@@ -20,7 +25,7 @@
             >
 
             <p class="card-text">
-              Amout :{{i.number}}
+              Amout : {{i.number}}
               <br>
               DateIn: {{i.date_in}}
               <br>
@@ -30,7 +35,6 @@
             <!-- <b-button variant="primary" v-on:click="onClick(2,i.id)">Detail</b-button> -->
           </b-card>
         </div>
-      </div>
     </b-row>
   </div>
 </template>
@@ -48,6 +52,7 @@ export default {
     arr: Array
   },
   mounted() {
+    var self=this;
     this.user = this.$session.get("user");
     fetch("http://localhost:3000/api/waiting_list")
       .then(function(data) {
@@ -56,6 +61,7 @@ export default {
       .then(function(json) {
         // console.log(json);
         arr = json;
+        self.realList=json;
       });
     // console.log(this.user);
   },

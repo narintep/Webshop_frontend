@@ -56,7 +56,7 @@
               <b-col>
                 <b-button variant="primary" v-b-modal.modal2>Buy</b-button>
 
-                <b-modal @ok="Buy" id="modal2" title="Your order is...">
+                <b-modal @ok="Buy(i)" id="modal2" title="Your order is...">
                   <b-list-group>
                     <b-list-group-item>Standard price : {{i.price}}</b-list-group-item>
                     <b-list-group-item>Size : {{size_select}}</b-list-group-item>
@@ -140,6 +140,7 @@ img:hover {
 <script>
 var moment = require("moment");
 const _ = require("lodash");
+import axios from "axios";
 export default {
   mounted() {
     var self = this;
@@ -216,10 +217,32 @@ export default {
       var mo = new moment.duration(new Date(date) - this.currentDate);
       return parseInt(mo.asDays());
     },
-    Buy() {
+    async Buy(item) {
       const user = this.$session.get("user");
       if (user == null) alert("Please login.");
-      else console.log(this.$session.get("user"));
+      else {
+        console.log(this.$session.get("user"));
+        item.inumber = Math.min(item.number, this.number);
+        item.wnumber = -Math.min(item.number - this.number, 0);
+        item.amount=this.number;
+        item.number = item.number - this.number;
+        item.user = this.$session.get("user");
+        item.earn = this.calPrice(
+          this.number *
+            (this.smell1 + this.smell2 + this.size_select + item.price),
+          this.calDay(item.expr_date)
+        );
+        await axios.put("http://localhost:3000/api/PurchasedItem/buy/", item);
+        var self = this;
+        fetch("http://localhost:3000/api/PurchasedItem")
+          .then(function(data) {
+            return data.json();
+          })
+          .then(function(json) {
+            // console.log(json);
+            self.realList = json;
+          });
+      }
     }
   }
 };
