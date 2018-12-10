@@ -47,7 +47,16 @@
                 <div v-if="submitted && errors.has('birthdate')" class="invalid-feedback">{{ errors.first('birthdate') }}</div>
             </div>
             </b-col>
-        </b-row>  
+        </b-row>
+        <b-row >
+            <b-col sm="5">     
+             <div class="form-group">
+                <label htmlFor="age">Age</label>
+                <input type="number"  min="1" v-model="user.age" v-validate="{ required: true, min: 6 }" name="age" class="form-control" :class="{ 'is-invalid': submitted && errors.has('age') }" />
+                <div v-if="submitted && errors.has('age')" class="invalid-feedback">{{ errors.first('age') }}</div>
+            </div>
+            </b-col>
+        </b-row>    
         <b-row >
             <b-col sm="5">   
              <div class="form-group">
@@ -56,7 +65,8 @@
                 <div v-if="submitted && errors.has('location')" class="invalid-feedback">{{ errors.first('location') }}</div>
             </div>
             </b-col>
-        </b-row>     
+        </b-row>   
+          
          <b-row >
             <b-col sm="5"> 
             <div class="form-group">
