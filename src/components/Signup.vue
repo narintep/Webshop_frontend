@@ -96,7 +96,6 @@
                 class="invalid-feedback"
               >{{ errors.first('birthdate') }}</div>
             </div>
-<<<<<<< HEAD
             </b-col>
         </b-row>
         <b-row >
@@ -108,19 +107,10 @@
             </div>
             </b-col>
         </b-row>    
-        <b-row >
-            <b-col sm="5">   
-             <div class="form-group">
-                <label htmlFor="location">Location</label>
-                <input type="text" v-model="user.location" v-validate="{ required: true, min: 6 }" name="location" class="form-control" :class="{ 'is-invalid': submitted && errors.has('location') }" />
-                <div v-if="submitted && errors.has('location')" class="invalid-feedback">{{ errors.first('location') }}</div>
-            </div>
-            </b-col>
-        </b-row>   
+    
           
          <b-row >
             <b-col sm="5"> 
-=======
           </b-col>
         </b-row>
         <b-row>
@@ -144,7 +134,6 @@
         </b-row>
         <b-row>
           <b-col sm="5">
->>>>>>> 5dc5f71347e4971f4f1fdf24eb194d98f7ece90f
             <div class="form-group">
               <label for="type">Type</label>
               <input
@@ -162,12 +151,20 @@
             </div>
           </b-col>
         </b-row>
-
+      <b-row>
+        <b-col>
+        <div>
+          <b-button variant=warning v-on:click="onClick(4)">Sign Up</b-button>
+          
+  
+      </div>
+      </b-col>
+     </b-row>
         <!-- <div class="form-group">
                 <button class="btn btn-primary" :disabled="status.registering">Register</button>
                 <img v-show="status.registering" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                 <router-link to="/login" class="btn btn-link">Cancel</router-link>
-        </div>-->
+        </div> -->
       </form>
     </div>
   </b-container>
@@ -192,7 +189,12 @@ export default {
       this.setCustomer(data);
       this.$session.set("user", data);
       alert("Register sucess!");
-    }
+    },
+    onClick(event) {
+      this.$emit("clicked", [event]);
+      alert(this.event)
+    },
+    
   }
 };
 </script>
