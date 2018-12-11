@@ -14,7 +14,7 @@
       <b-nav-item v-on:click="onClick(1,0)" >Promotions</b-nav-item>
       <b-nav-item v-on:click="onClick(1,1)">Most Views</b-nav-item>
       <b-nav-item v-on:click="onClick(1,2)">Top Sells</b-nav-item>
-      <b-nav-item v-on:click="onClick(11)">Report</b-nav-item>
+      
       
        <b-nav-item-dropdown text="Categories" right>
         <b-dropdown-item v-on:click="onClick(1,3)">Generals</b-dropdown-item>
@@ -25,6 +25,7 @@
       </b-nav-item-dropdown>
     </b-navbar-nav>
     <b-navbar-nav class="ml-auto">
+      <b-nav-item v-on:click="onClick(11)">Report</b-nav-item>
       <b-nav-item v-on:click="onClick(6)">Database</b-nav-item>
       
 
@@ -34,7 +35,8 @@
         <b-dropdown-item-button v-on:click="onClick(5)">edit profile</b-dropdown-item-button>
       </b-nav-item-dropdown>
       <b-nav-item v-if="user_data==null" v-on:click="onClick(4)">Signup</b-nav-item>
-      <b-nav-item v-on:click="onClick(3)" href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
+      <b-nav-item v-b-modal.modal1 v-if="user_data==null" href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
+      <b-nav-item v-on:click="onClick(3)" v-if="user_data!=null" href="#"><img src="./../assets/cart.png" height="25" width="25"></b-nav-item>
     </b-navbar-nav>
 
   </b-collapse>
@@ -89,6 +91,7 @@ export default {
     logout() {
       this.setCustomer(null);
       this.$session.remove('user')
+      this.onClick(0)
     },
     login() {
       var self = this;
