@@ -204,7 +204,8 @@ export default {
       show: true,
       size: [],
       size_select: 50,
-      currentDate: new Date()
+      currentDate: new Date(),
+      bonus:0
     };
   },
   methods: {
@@ -214,8 +215,11 @@ export default {
       } else return price;
     },
     calDay(date) {
+      if(this.smell1!=0&&this.smell2!=0)this.bonus=-10;
+      else this.bonus=0;
       var mo = new moment.duration(new Date(date) - this.currentDate);
-      return parseInt(mo.asDays());
+      var d=Math.min(100,mo.asDays());
+      return parseInt(d)+this.bonus;
     },
     async Buy(item) {
       const user = this.$session.get("user");

@@ -25,12 +25,12 @@
           <p v-if="calDay(i.expr_date)>=100" class="card-text">
             Min Weight : {{i.min_weight}}
             <br>
-            price : {{i.price+50}} 
+            price : {{parseInt(i.price+50)}} 
           </p>
           <p v-if="calDay(i.expr_date)<100" class="card-text">
             Min Weight : {{i.min_weight}} 
             <br>
-            price : {{(i.price+50)/100*calDay(i.expr_date)}} <b-badge v-b-tooltip.hover :title="'From '+(i.price+50)" pill variant="danger">{{calDay(i.expr_date)-100}} %</b-badge> 
+            price : {{parseInt((i.price+50)/100*calDay(i.expr_date))}} <b-badge v-b-tooltip.hover :title="'From '+(i.price+50)" pill variant="danger">{{calDay(i.expr_date)-100}} %</b-badge> 
           </p>
           <b-button variant="primary" v-on:click="onClick(2,i)">Detail</b-button>
         </b-card>
