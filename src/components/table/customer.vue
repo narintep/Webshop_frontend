@@ -148,7 +148,7 @@
                     label="Name:"
                     label-for="exampleInput1">
         <b-form-input id="exampleInput1"
-                      type="number"
+                      type="text"
                       v-model="item.name"
                       required
                       placeholder="Enter Name">
